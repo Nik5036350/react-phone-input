@@ -134,6 +134,30 @@ class ReactPhoneInput extends React.Component {
     });
   }
 
+  getJSON(url, callback) {
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', url, true);
+    xhr.responseType = 'json';
+    xhr.onload = function() {
+      var status = xhr.status;
+      if (status == 200) {
+        debugger
+        callback(null, xhr.response);
+      } else {
+        callback(status);
+      }
+    };
+    xhr.send();
+};
+
+  componentWillMount() {
+    this.getJSON('https://ip-api.io/json/', 
+    (error, data) => 
+      {
+        this.updateDefaultCountry( data.country_code.toLowerCase() )
+      })
+  }
+
   componentDidMount() {
     document.addEventListener('keydown', this.handleKeydown);
   }
@@ -582,12 +606,12 @@ ReactPhoneInput.propTypes = {
 
 export default ReactPhoneInput;
 
-if (__DEV__) {
-  const ReactDOM = require('react-dom');
-  ReactDOM.render(
-    <ReactPhoneInput defaultCountry='us' preferredCountries={['us', 'de']} excludeCountries={'in'}/>,
-    document.getElementById('content'));
-  ReactDOM.render(
-      <ReactPhoneInput defaultCountry='de' preferredCountries={['it']}/>,
-      document.getElementById('content'));
-}
+// if (__DEV__) {
+//   const ReactDOM = require('react-dom');
+//   ReactDOM.render(
+//     <ReactPhoneInput defaultCountry='us' preferredCountries={['us', 'de']} excludeCountries={'in'}/>,
+//     document.getElementById('content'));
+//   ReactDOM.render(
+//       <ReactPhoneInput defaultCountry='de' preferredCountries={['it']}/>,
+//       document.getElementById('content'));
+// }

@@ -2,11 +2,13 @@
   "name": "react-phone-input",
   "version": "1.2.1",
   "description": "A react component to format phone numbers",
-  "main": "dist/index.js",
+  "main": "dist/index.jsx",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "TARGET=dev webpack-dev-server --progress",
-    "build": "TARGET=build webpack -p --progress"
+    "build": "TARGET=build webpack -p --progress",
+    "styleguide": "TARGET=dev styleguidist server",
+    "styleguide:build": "TARGET=dev styleguidist build"
   },
   "repository": {
     "type": "git",
@@ -43,10 +45,9 @@
     "webpack-merge": "^0.13.0"
   },
   "dependencies": {
-    "classnames": "^2.1.5"
-  },
-  "peerDependencies": {
+    "classnames": "^2.1.5",
     "lodash": "^4.11.1",
-    "react": "^0.14.8 || ^15.0.1"
+    "react": "^15.6.1",
+    "react-styleguidist": "^5.5.9"
   }
 }
