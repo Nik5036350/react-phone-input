@@ -151,11 +151,13 @@ class ReactPhoneInput extends React.Component {
 };
 
   componentWillMount() {
-    this.getJSON('https://ip-api.io/json/', 
-    (error, data) => 
-      {
-        this.updateDefaultCountry( data.country_code.toLowerCase() )
-      })
+    if(this.props.ipGeocodingEnabled === true){
+      this.getJSON('https://ip-api.io/json/', 
+      (error, data) => 
+        {
+          this.updateDefaultCountry( data.country_code.toLowerCase() )
+        })
+    }
   }
 
   componentDidMount() {
@@ -584,6 +586,7 @@ ReactPhoneInput.prototype.guessSelectedCountry = memoize(function(inputNumber, o
 ReactPhoneInput.defaultProps = {
   value: '',
   autoFormat: true,
+  ipGeocodingEnabled: true,
   onlyCountries: [],
   excludeCountries: [],
   defaultCountry: allCountries[0].iso2,
@@ -595,6 +598,7 @@ ReactPhoneInput.defaultProps = {
 ReactPhoneInput.propTypes = {
     value: React.PropTypes.string,
     autoFormat: React.PropTypes.bool,
+    ipGeocodingEnabled: React.PropTypes.bool,
     defaultCountry: React.PropTypes.string,
     onlyCountries: React.PropTypes.arrayOf(React.PropTypes.string),
     preferredCountries: React.PropTypes.arrayOf(React.PropTypes.string),
