@@ -1,7 +1,7 @@
 {
-  "name": "react-phone-input",
-  "version": "1.2.1",
-  "description": "A react component to format phone numbers",
+  "name": "react-geoip-phone-input",
+  "version": "1.0.0",
+  "description": "A react component to format phone numbers with geoIp",
   "main": "dist/index.jsx",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -20,12 +20,12 @@
     "format",
     "telephone"
   ],
-  "author": "Raza Gill <raza.gill@outlook.com> (http://github.com/razagill)",
+  "author": "Nik5036350 <nik5036350@gmail.com> (https://github.com/Nik5036350/react-phone-input)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/razagill/react-phone-input/issues"
+    "url": "https://github.com/Nik5036350/react-phone-input/issues"
   },
-  "homepage": "https://github.com/razagill/react-phone-input",
+  "homepage": "https://github.com/Nik5036350/react-phone-input",
   "devDependencies": {
     "babel-core": "^6.9.1",
     "babel-loader": "^6.2.4",

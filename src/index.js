@@ -67,7 +67,8 @@ class ReactPhoneInput extends React.Component {
     super(props);
     let inputNumber = this.props.value || '';
     let onlyCountries = excludeCountries(getOnlyCountries(props.onlyCountries), props.excludeCountries);
-    let selectedCountryGuess = find(onlyCountries, {iso2: this.props.defaultCountry});
+    // let selectedCountryGuess = find(onlyCountries, {iso2: this.props.defaultCountry});
+    let selectedCountryGuess = this.guessSelectedCountry(this.props.value, allCountries, this.props.defaultCountry);
     let selectedCountryGuessIndex = findIndex(allCountries, selectedCountryGuess);
     let dialCode = selectedCountryGuess && !startsWith(inputNumber.replace(/\D/g, ''), selectedCountryGuess.dialCode) ? selectedCountryGuess.dialCode : '';
     let formattedNumber = this.formatNumber(dialCode + inputNumber.replace(/\D/g, ''), selectedCountryGuess ? selectedCountryGuess.format : null);
@@ -151,7 +152,7 @@ class ReactPhoneInput extends React.Component {
 };
 
   componentWillMount() {
-    if(this.props.ipGeocodingEnabled === true){
+    if(this.props.ipGeocodingEnabled === true && !this.props.value){
       this.getJSON('https://ip-api.io/json/', 
       (error, data) => 
         {
@@ -561,7 +562,7 @@ ReactPhoneInput.prototype.guessSelectedCountry = memoize(function(inputNumber, o
   var secondBestGuess = find(allCountries, {iso2: defaultCountry}) || onlyCountries[0];
   if(trim(inputNumber) !== '') {
 		var bestGuess = reduce(onlyCountries, function(selectedCountry, country) {
-			if(startsWith(inputNumber, country.dialCode)) {
+			if(startsWith(inputNumber, country.dialCode) || startsWith(inputNumber.replace('+', ''), country.dialCode)) {
 				if(country.dialCode.length > selectedCountry.dialCode.length) {
 					return country;
 				}
