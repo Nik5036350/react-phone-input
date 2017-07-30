@@ -156,7 +156,9 @@ class ReactPhoneInput extends React.Component {
       this.getJSON('https://ip-api.io/json/', 
       (error, data) => 
         {
-          this.updateDefaultCountry( data.country_code.toLowerCase() )
+          if(!error){
+            this.updateDefaultCountry( data.country_code.toLowerCase() )
+          }
         })
     }
   }
