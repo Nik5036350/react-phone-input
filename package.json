@@ -12,13 +12,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/razagill/react-phone-input.git"
+    "url": "https://github.com/Nik5036350/react-phone-input.git"
   },
   "keywords": [
     "react",
     "phone",
     "format",
-    "telephone"
+    "telephone",
+    "geoip",
+    "geocoding",
+    "ipgeocoding"
   ],
   "author": "Nik5036350 <nik5036350@gmail.com> (https://github.com/Nik5036350/react-phone-input)",
   "license": "MIT",
