@@ -1,6 +1,6 @@
 {
   "name": "react-geoip-phone-input",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "A react component to format phone numbers with geoIp",
   "main": "dist/index.jsx",
   "scripts": {
@@ -42,12 +42,12 @@
     "url-loader": "^0.5.7",
     "webpack": "^1.13.1",
     "webpack-dev-server": "^1.14.1",
-    "webpack-merge": "^0.13.0"
+    "webpack-merge": "^0.13.0",
+    "react-styleguidist": "^5.5.9"
   },
   "dependencies": {
     "classnames": "^2.1.5",
     "lodash": "^4.11.1",
-    "react": "^15.6.1",
-    "react-styleguidist": "^5.5.9"
+    "react": "^15.6.1"
   }
 }
