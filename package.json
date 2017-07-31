@@ -1,6 +1,6 @@
 {
   "name": "react-geoip-phone-input",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A react component to format phone numbers with geoIp",
   "main": "dist/index.jsx",
   "scripts": {
