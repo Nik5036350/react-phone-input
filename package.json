@@ -2,7 +2,7 @@
   "name": "react-geoip-phone-input",
   "version": "0.0.4",
   "description": "A react component to format phone numbers with geoIp",
-  "main": "dist/index.jsx",
+  "main": "dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "TARGET=dev webpack-dev-server --progress",
