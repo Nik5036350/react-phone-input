@@ -508,6 +508,9 @@ class ReactPhoneInput extends React.Component {
   }
 
   render() {
+
+    let wrapperClasses = classNames(this.props.className, 'react-tel-input')
+
     let arrowClasses = classNames({
       "arrow": true,
       "up": this.state.showDropDown
@@ -525,7 +528,7 @@ class ReactPhoneInput extends React.Component {
     let inputFlagClasses = `flag ${this.state.selectedCountry.iso2}`;
 
     return (
-      <div className="react-tel-input">
+      <div className={wrapperClasses}>
         <input
           placeholder="+1 (702) 123-4567"
           onChange={this.handleInput}
@@ -598,7 +601,8 @@ ReactPhoneInput.defaultProps = {
   defaultCountry: allCountries[0].iso2,
   isValid: isNumberValid,
   flagsImagePath: './flags.png',
-  onEnterKeyPress: function () {}
+  onEnterKeyPress: function () {},
+  className: ''
 };
 
 ReactPhoneInput.propTypes = {
@@ -611,7 +615,8 @@ ReactPhoneInput.propTypes = {
     onChange: React.PropTypes.func,
     onFocus: React.PropTypes.func,
     onClick: React.PropTypes.func,
-    onKeyDown: React.PropTypes.func
+    onKeyDown: React.PropTypes.func,
+    className: React.PropTypes.string
 };
 
 export default ReactPhoneInput;
